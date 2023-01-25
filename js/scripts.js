@@ -13,8 +13,10 @@ Player.prototype.roll = function() {
     if (diceValue === 1){
         this.turnTotal = 0;
         return "done";
+    } else if ((parseInt(this.score) + parseInt(this.turnTotal) + parseInt(diceValue)) >= 10) {
+        return this.name + " you won! Press reset to play again."
     } else {
-        this.turnTotal += diceValue
+        this.turnTotal += parseInt(diceValue);
         return "your turn total is: " + this.turnTotal + ". keep rolling or hold?";
     }
 }

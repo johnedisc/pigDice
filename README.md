@@ -36,6 +36,13 @@ Code:
 set hernan.turnTotal =4
 Expected output: hernan.score =4
 
+Describe: roll() 
+
+Test: "if player reaches 100 points should say win for that player"
+Code:
+hernan.score: 98 and roll() returns 2
+Expected output: 'hernan won the game'
+
  Setup/Installation Requirements
 
 * _This is a great place_
