@@ -6,11 +6,11 @@ function Player(name) {
     this.turnTotal = 0;
 }
 
-Player.prototype.randomNum = function() {
+function randomNum() {
     return Math.floor((Math.random() *6) + 1)
 }
 
-Player.prototype.roll = function() {
+function roll(obj) {
     let diceValue = this.randomNum()
     if (diceValue === 1){
         this.turnTotal = 0;
@@ -23,24 +23,30 @@ Player.prototype.roll = function() {
     }
 }
 
-Player.prototype.hold = function() {
+function hold() {
     this.score += this.turnTotal;
     this.turnTotal = 0;
 }
 
-Player.prototype.reset= function() {
+function reset() {
     this.score= 0;
     this.turnTotal= 0;
 }
 
+let player1 = new Player("player 1");
+let player2 = new Player("player 2");
+
+
 // UI logic
-function startHandler(event) {
-    let player1 = new Player("player 1");
-    let player2 = new Player("player 2");
+function startGame(event) {
     const instruction = document.querySelector('#instructions')
     instruction.innerText = "player1, please press roll to start";
+    player1.roll = roll;
+    console.log(player1)
+    
+
 }
 
 window.addEventListener('load', function(event) {
-    document.querySelector('#bnt-start').addEventListener('click',startHandler)
+    document.querySelector('#bnt-start').addEventListener('click',startGame);
 });
