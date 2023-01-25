@@ -4,12 +4,12 @@ function Player(name) {
     this.turnTotal = 0;
 }
 
-Player.prototype.rollCounter = function() {
+Player.prototype.randomNum = function() {
     return Math.floor((Math.random() *6) + 1)
 }
 
-Player.prototype.turn = function() {
-    let diceValue = this.rollCounter()
+Player.prototype.roll = function() {
+    let diceValue = this.randomNum()
     if (diceValue === 1){
         this.turnTotal = 0;
         return "done";
@@ -17,6 +17,11 @@ Player.prototype.turn = function() {
         this.turnTotal += diceValue
         return "your turn total is: " + this.turnTotal + ". keep rolling or hold?";
     }
+}
+
+Player.prototype.hold = function() {
+    this.score += this.turnTotal;
+    this.turnTotal = 0;
 }
 
 let hernan = new Player('hernan');

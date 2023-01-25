@@ -29,11 +29,14 @@ Code:
 console.log(newTurn());
 Expected Output 1; 
 
-Describe: Player(name) constructor
+Describe: hold()
 
+Test: "When dice gets roll let turn score trasfer to regular score."
+Code:
+set hernan.turnTotal =4
+Expected output: hernan.score =4
 
-
-## Setup/Installation Requirements
+ Setup/Installation Requirements
 
 * _This is a great place_
 * _to list setup instructions_
