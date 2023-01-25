@@ -1,3 +1,5 @@
+// Business Logic
+
 function Player(name) {
     this.name = name;
     this.score = 0;
@@ -26,4 +28,19 @@ Player.prototype.hold = function() {
     this.turnTotal = 0;
 }
 
-let hernan = new Player('hernan');
+Player.prototype.reset= function() {
+    this.score= 0;
+    this.turnTotal= 0;
+}
+
+// UI logic
+function startHandler(event) {
+    let player1 = new Player("player 1");
+    let player2 = new Player("player 2");
+    const instruction = document.querySelector('#instructions')
+    instruction.innerText = "player1, please press roll to start";
+}
+
+window.addEventListener('load', function(event) {
+    document.querySelector('#bnt-start').addEventListener('click',startHandler)
+});

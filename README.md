@@ -1,19 +1,18 @@
-# _{Application Name}_
+# _{Pig dice}_
 
-#### By _**{List of contributors}**_
+#### By _**{[Hernan Verar](https://github.com/hernanverar) and [johnedisc](https://github.com/johnedisc?tab=repositories)}**_
 
-#### _{Brief description of application}_
+#### _{Building dice game}_
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* _HTML_
+* _Javascript_
+* _css_
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_{In this project we learned how to manipulate objects to create a dice game}_
 
 Describe: rollCounter()
 
@@ -42,6 +41,15 @@ Test: "if player reaches 100 points should say win for that player"
 Code:
 hernan.score: 98 and roll() returns 2
 Expected output: 'hernan won the game'
+
+Describe: reset() 
+
+Test: "if players terminate game, all scores should be reset"
+Code:
+reset()
+Expected output: player.score:0,player.turnTotal:0
+
+
 
  Setup/Installation Requirements
 

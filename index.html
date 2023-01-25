@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <script src= "js/scripts.js"></script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="js/scripts.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-
-
+  <div id="gameBoard">
     
-    <div>
-        <button class="btn bnt-new">Start Game</button>
-        <button class="bnt bnt-roll">roll dice</button>
-        <button class="bnt bnt-hold">hold</button>
+    <div id="scorePlayer1"></div>
+
+    <div id="scorePlayer2"></div>
+
+    <div id="instructions"></div>
+
+    <div id="turnTotal"></div>
+    
+    <div id="buttons">
+      <button type='button' id="bnt-start">start game</button>
+      <button type='button' id="bnt-roll">roll dice</button>
+      <button type='button' id="bnt-hold">hold</button>
+      <button type='button' id="bnt-reset">restart</button>
     </div>
+
+  </div>
 </body>
+
 </html>
