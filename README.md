@@ -22,6 +22,17 @@ Code:
 const dice = rollCounter();
 Expected Output: dice === randomNumber
 
+Describe: newTurn()
+
+Test: "the dice should keep rolling until 1 it's roll."
+Code:
+console.log(newTurn());
+Expected Output 1; 
+
+Describe: Player(name) constructor
+
+
+
 ## Setup/Installation Requirements
 
 * _This is a great place_
