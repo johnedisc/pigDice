@@ -39,9 +39,9 @@ Player.prototype.reset= function() {
 
 function switchTurn(currentPlayer) {
   if (currentPlayer === player1) {
-    return 'player 2'
+    return player2
   } else {
-    return 'player 1'
+    return player1
   }
 }
 
