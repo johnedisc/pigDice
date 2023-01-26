@@ -1,20 +1,24 @@
 // Business Logic
 
+
 function Player(name) {
     this.name = name;
     this.score = 0;
     this.turnTotal = 0;
+    this.turn = false;
+
 }
 
-function randomNum() {
+Player.prototype.randomNum = function() {
     return Math.floor((Math.random() *6) + 1)
 }
 
-function roll(obj) {
+Player.prototype.roll = function() {
     let diceValue = this.randomNum()
     if (diceValue === 1){
+        this.turn = false;
         this.turnTotal = 0;
-        return "done";
+        return "turn over. next player roll";
     } else if ((parseInt(this.score) + parseInt(this.turnTotal) + parseInt(diceValue)) >= 10) {
         return this.name + " you won! Press reset to play again."
     } else {
@@ -23,12 +27,12 @@ function roll(obj) {
     }
 }
 
-function hold() {
+Player.prototype.hold = function() {
     this.score += this.turnTotal;
     this.turnTotal = 0;
 }
 
-function reset() {
+Player.prototype.reset= function() {
     this.score= 0;
     this.turnTotal= 0;
 }
@@ -39,12 +43,9 @@ let player2 = new Player("player 2");
 
 // UI logic
 function startGame(event) {
-    const instruction = document.querySelector('#instructions')
+    const instruction = document.querySelector('#instructions');
     instruction.innerText = "player1, please press roll to start";
-    player1.roll = roll;
-    console.log(player1)
-    
-
+  
 }
 
 window.addEventListener('load', function(event) {
