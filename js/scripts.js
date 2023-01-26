@@ -1,6 +1,4 @@
 // Business Logic
-
-
 function Player(name) {
     this.name = name;
     this.score = 0;
@@ -37,17 +35,27 @@ Player.prototype.reset= function() {
     this.turnTotal= 0;
 }
 
+function switchTurn(obj) {
+    if (obj === player1) {
+        player1.turn = false;
+        player2.turn = true;
+    } else {
+        player2.turn = false;
+        player1.turn = true;
+    }
+}
+
 let player1 = new Player("player 1");
 let player2 = new Player("player 2");
 
 
 // UI logic
-function startGame(event) {
+function startPlayer(event) {
     const instruction = document.querySelector('#instructions');
     instruction.innerText = "player1, please press roll to start";
   
 }
 
 window.addEventListener('load', function(event) {
-    document.querySelector('#bnt-start').addEventListener('click',startGame);
+    document.querySelector('#bnt-start').addEventListener('click',startPlayer);
 });
