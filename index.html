@@ -11,30 +11,31 @@
 </head>
 
 <body>
-  <div id="gameBoard">
-    
-    <div id="scorePlayer1"></div>
+  <div id="gameBoard" class="container">
 
-    <div id="scorePlayer2"></div>
-
-    <div id="instructions"></div>
-
-    <div id="turnTotal"></div>
-    
-    <div id="dice-roll"></div>
-    
-    <div id="buttons">
-      <div id="startButton">
+      <div id="header">
         <button type='button' id="bnt-start">start game</button>
+        <div id="instructions">instructions</div>
       </div>
+
+      <div id="score1">Player 1 Score:<span id="scorePlayer1"></span></div>
+
+      <div id="score2">Player 2 Score:<span id="scorePlayer2"></span></div>
+
       <div id="player1">
         <button type='button' id="bnt-roll-p1">roll dice</button>
         <button type='button' id="bnt-hold-p1">hold</button>
       </div>
+  
       <div id="player2">
         <button type='button' id="bnt-roll-p2">roll dice</button>
         <button type='button' id="bnt-hold-p2">hold</button>
       </div>
+
+    <div class="footer">
+      <div id="turnTotal">Turn Total: </div>
+      
+      <div id="dice-roll">dice</div>
     </div>
 
   </div>

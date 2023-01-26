@@ -88,6 +88,8 @@ function startPlayer(event) {
   let turn = 'p1';
   document.getElementById("scorePlayer1").innerText = player1.score
   document.getElementById("scorePlayer2").innerText = player2.score
+  document.getElementById('turnTotal').innerText = 0;
+  document.getElementById("dice-roll").innerText = 0;
   // listen for roll button
 
   document.getElementById("bnt-roll-p1").addEventListener("click", (e) => {
