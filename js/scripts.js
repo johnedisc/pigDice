@@ -1,61 +1,86 @@
 // Business Logic
 function Player(name) {
-    this.name = name;
-    this.score = 0;
-    this.turnTotal = 0;
-    this.turn = false;
+  this.name = name;
+  this.score = 0;
+  this.turnTotal = 0;
+  this.turn = false;
 
 }
 
 Player.prototype.randomNum = function() {
-    return Math.floor((Math.random() *6) + 1)
+  return Math.floor((Math.random() *6) + 1)
 }
 
 Player.prototype.roll = function() {
-    let diceValue = this.randomNum()
-    if (diceValue === 1){
-        this.turn = false;
-        this.turnTotal = 0;
-        return "turn over. next player roll";
-    } else if ((parseInt(this.score) + parseInt(this.turnTotal) + parseInt(diceValue)) >= 10) {
-        return this.name + " you won! Press reset to play again."
-    } else {
-        this.turnTotal += parseInt(diceValue);
-        return "your turn total is: " + this.turnTotal + ". keep rolling or hold?";
-    }
+  const goal = 100;
+  let diceValue = this.randomNum()
+  if (diceValue === 1){
+      this.turn = false;
+      this.turnTotal = 0;
+      return 0;
+  } else if ((parseInt(this.score) + parseInt(this.turnTotal) + parseInt(diceValue)) >= goal) {
+      return goal;
+  } else {
+      this.turnTotal += parseInt(diceValue);
+    console.log(this.turnTotal);
+      return turnTotal;
+  }
 }
 
 Player.prototype.hold = function() {
-    this.score += this.turnTotal;
-    this.turnTotal = 0;
+  this.score += this.turnTotal;
+  this.turnTotal = 0;
 }
 
 Player.prototype.reset= function() {
-    this.score= 0;
-    this.turnTotal= 0;
+  this.score= 0;
+  this.turnTotal= 0;
 }
 
-function switchTurn(obj) {
-    if (obj === player1) {
-        player1.turn = false;
-        player2.turn = true;
-    } else {
-        player2.turn = false;
-        player1.turn = true;
-    }
+function switchTurn(currentPlayer) {
+  if (currentPlayer === player1) {
+    return 'player 2'
+  } else {
+    return 'player 1'
+  }
 }
 
-let player1 = new Player("player 1");
-let player2 = new Player("player 2");
+function print(result, player) {
+  const p1Score = document.getElementById('scorePlayer1');
+  const p2Score = document.getElementById('scorePlayer2');
+  const instructions = document.getElementById('instructions');
+  const turnTotal = document.querySelector('div#turnTotal');
+  console.log(result);
 
+  if (result === 0) {
+    instructions.innerText = `round over ${player}. ${switchTurn(player)}'s turn.`;
+  } else if (result === 100 && player === player1) {
+    instructions.innerText = `you won ${player.name}!`;
+    p1Score.innerText = result; 
+  } else if (result === 100 && player === player2) {
+    instructions.innerText = `you won ${player.name}!`;
+    p2Score.innerText = result; 
+  } else {
+    instructions.innerText = `hold or roll ${player.name}?`;
+    turnTotal.innerText = String(result); 
+  }
+}
 
 // UI logic
 function startPlayer(event) {
-    const instruction = document.querySelector('#instructions');
-    instruction.innerText = "player1, please press roll to start";
-  
+  let player1 = new Player("player 1");
+  let player2 = new Player("player 2");
+  const instruction = document.querySelector('#instructions');
+  instruction.innerText = "player1, please press roll to start";
+  // listen for roll button
+  document.getElementById("bnt-roll-p1").addEventListener("click", (e) => {
+    print(player1.roll(), player1);
+  });
+  document.getElementById("bnt-roll-p2").addEventListener("click", (e) => {
+    print(player2.roll(), player2);
+  });
 }
 
 window.addEventListener('load', function(event) {
-    document.querySelector('#bnt-start').addEventListener('click',startPlayer);
+  document.querySelector('#bnt-start').addEventListener('click',startPlayer);
 });
